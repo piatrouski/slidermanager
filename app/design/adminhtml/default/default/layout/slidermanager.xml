@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ * MAGENTO EDITION USAGE NOTICE
+ *
+ * This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *
+ * @category   Belvg
+ * @package    Belvg_Slidermanager
+ * @author     Siaržuk Piatroŭski (siarzuk@piatrouski.com)
+ * @copyright  Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+<layout version="0.1.0">
+    <adminhtml_slidermanager_manageslides>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>belvg/slidermanager/core-backend.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-1.8.3.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-noconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/core-backend.js</script>
+            </action>
+        </reference>
+    </adminhtml_slidermanager_manageslides>
+
+    <adminhtml_slidermanager_editslide>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>belvg/slidermanager/core-backend.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-1.8.3.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-noconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/core-backend.js</script>
+            </action>
+        </reference>
+    </adminhtml_slidermanager_editslide>
+
+    <adminhtml_slidermanager_statistics>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>belvg/slidermanager/core-backend.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-1.8.3.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-noconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/core-backend.js</script>
+            </action>
+        </reference>
+    </adminhtml_slidermanager_statistics>
+
+    <adminhtml_slidermanager_addslides>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>belvg/slidermanager/jquery.qtip.min.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-1.8.2.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery.qtip.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>belvg/slidermanager/jquery-noconflict.js</script>
+            </action>
+        </reference>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="slidermanager/adminhtml_composeslider_edit_tab_slides" name="composeslider-edit-tab-slides"/>
+            <block type="adminhtml/widget_grid_serializer" name="addslides_grid_serializer">
+                <reference name="addslides_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>composeslider-edit-tab-slides</grid_block_name>
+                        <data_callback>getSelectedSlides</data_callback>
+                        <hidden_input_name>slider[slide]</hidden_input_name>
+                        <reload_param_name>slider_slides</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_slidermanager_addslides>
+
+    <adminhtml_slidermanager_addslidesgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="slidermanager/adminhtml_composeslider_edit_tab_slides" name="composeslider-edit-tab-slides"/>
+        </block>
+    </adminhtml_slidermanager_addslidesgrid>
+</layout>

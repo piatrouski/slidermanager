@@ -1,0 +1,3 @@
+belvgSM(document).ready(function()
+{
+});

@@ -1,0 +1,1 @@
+var belvgSM = jQuery.noConflict();
