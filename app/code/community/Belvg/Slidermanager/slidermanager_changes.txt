@@ -1,0 +1,5 @@
+BelVG Slider Manager // Changes
+
+==== X.X.X ====
+    === Features ===
+    === Fixes ===

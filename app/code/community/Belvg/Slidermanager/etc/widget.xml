@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<widgets>
+    <slidermanager_widget type="slidermanager/slider" translate="name description" module="slidermanager">
+        <name>Slider Manager</name>
+        <description>Need description!</description>
+        <parameters>
+            <slider translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Slider</label>
+                <type>select</type>
+                <source_model>slidermanager/source_slider</source_model>
+            </slider>
+        </parameters>
+    </slidermanager_widget>
+</widgets>

@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ * MAGENTO EDITION USAGE NOTICE
+ *
+ * This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *
+ * @category   Belvg
+ * @package    Belvg_Slidermanager
+ * @author     Siaržuk Piatroŭski (siarzuk@piatrouski.com)
+ * @copyright  Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+<config>
+    <modules>
+        <Belvg_Slidermanager>
+            <version>0.0.2</version>
+        </Belvg_Slidermanager>
+    </modules>
+    <frontend>
+        <translate>
+            <modules>
+                <Belvg_Slidermanager>
+                    <files>
+                        <default>Belvg_Slidermanager.csv</default>
+                    </files>
+                </Belvg_Slidermanager>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <slidermanager>
+                    <file>slidermanager.xml</file>
+                </slidermanager>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Belvg_Slidermanager>
+                    <files>
+                        <default>Belvg_Slidermanager.csv</default>
+                    </files>
+                </Belvg_Slidermanager>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <slidermanager>
+                    <file>slidermanager.xml</file>
+                </slidermanager>
+            </updates>
+        </layout>
+        <events>
+            <adminhtml_catalog_category_tabs>
+                <observers>
+                    <slidermanager_add_tab>
+                        <type>singleton</type>
+                        <class>slidermanager/observer_category</class>
+                        <method>addTab</method>
+                    </slidermanager_add_tab>
+                </observers>
+            </adminhtml_catalog_category_tabs>
+            <catalog_category_save_after>
+                <observers>
+                    <slidermanager_save_tab_data>
+                        <type>singleton</type>
+                        <class>slidermanager/observer_category</class>
+                        <method>save</method>
+                    </slidermanager_save_tab_data>
+                </observers>
+            </catalog_category_save_after>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <slidermanager before="Mage_Adminhtml">Belvg_Slidermanager_Adminhtml</slidermanager>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <global>
+        <helpers>
+            <slidermanager>
+                <class>Belvg_Slidermanager_Helper</class>
+            </slidermanager>
+        </helpers>
+        <blocks>
+            <slidermanager>
+                <class>Belvg_Slidermanager_Block</class>
+            </slidermanager>
+        </blocks>
+        <models>
+            <slidermanager>
+                <class>Belvg_Slidermanager_Model</class>
+                <resourceModel>slidermanager_resource</resourceModel>
+            </slidermanager>
+            <slidermanager_resource>
+                <class>Belvg_Slidermanager_Model_Resource</class>
+                <entities>
+                    <category>
+                        <table>belvg_slidermanager_category</table>
+                    </category>
+                    <link>
+                        <table>belvg_slidermanager_link</table>
+                    </link>
+                    <log>
+                        <table>belvg_slidermanager_log</table>
+                    </log>
+                    <slide>
+                        <table>belvg_slidermanager_slide</table>
+                    </slide>
+                    <slider>
+                        <table>belvg_slidermanager_slider</table>
+                    </slider>
+                    <store>
+                        <table>belvg_slidermanager_store</table>
+                    </store>
+                </entities>
+            </slidermanager_resource>
+        </models>
+        <resources>
+            <slidermanager_setup>
+                <setup>
+                    <module>Belvg_Slidermanager</module>
+                    <class>Belvg_Slidermanager_Model_Resource_Setup</class>
+                </setup>
+            </slidermanager_setup>
+        </resources>
+    </global>
+</config>
